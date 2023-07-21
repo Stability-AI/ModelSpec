@@ -14,7 +14,7 @@ from PIL import Image
 # Metadata Example
 metadata = {
     # === Must ===
-    "modelspec.version": "sai_model_spec_1.0", # Required version ID for the spec
+    "modelspec.sai_model_spec": "1.0.0", # Required version ID for the spec
     "modelspec.architecture": "stable-diffusion-xl-v1-base", # Architecture, reference the ID of the original model of the arch to match the ID
     "modelspec.title": "Example Model Version 1.0", # Clean, human-readable title. May use your own phrasing/language/etc
     # === Should ===

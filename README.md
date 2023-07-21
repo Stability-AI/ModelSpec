@@ -6,7 +6,7 @@ The data within should identify clearly (A) the type and function of a model, cl
 
 ## Version
 
-This is specification version 1.0 - `sai_model_spec_1.0`. **NOT YET FINAL. PENDING REVIEW.**
+This is specification version 1.0.0. **NOT YET FINAL. PENDING REVIEW.**
 
 ## Technical Placement
 
@@ -19,7 +19,7 @@ The following is an example of what the header of a compliant file might look li
 ```js
 {
     "__metadata__": {
-        "modelspec.version": "sai_model_spec_1.0",
+        "modelspec.sai_model_spec": "1.0.0",
         "modelspec.architecture": "stable-diffusion-xl-v1-base",
         "modelspec.title": "Example Model Version 1.0",
         "other_keys": "..."
@@ -32,7 +32,7 @@ The following is an example of what the header of a compliant file might look li
 
 ### Trainers
 
-Trainers should copy pre-existing keys from the source file where relevant (architecture, etc.), auto-generate keys (version, hash, data, etc.) where relevant, and make it easy for the user to specify any user-modifiable keys (title, description, etc.).
+Trainers should copy pre-existing keys from the source file where relevant (architecture, etc.), auto-generate keys (modelspec version, hash, data, etc.) where relevant, and make it easy for the user to specify any user-modifiable keys (title, description, etc.).
 
 ### Inferencing Tools and UIs
 
@@ -58,7 +58,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 
 | Name | Type | Description | Examples |
 | --- | --- | --- | --- |
-| `version` | **MUST** | Mandatory identifier key, indicates the presence and version of this specification. Trainer tools that support the spec should automatically emit this key, set to the version they support. | `sai_model_spec_1.0` |
+| `sai_model_spec` | **MUST** | Mandatory identifier key, indicates the presence and version of this specification. Trainer tools that support the spec should automatically emit this key, set to the version they support. | `1.0.0` |
 | `architecture` | **MUST** | The specific classifier of the model's architecture, must be unique between models that have different inferencing requirements (*so for example SDV2-512 and SDv2-768-v are different enough that the distinction must be marked here, as the code must behave different to support it*). Simple finetunes of a model do not require a unique class, as the inference code does not have to change to support it. See architecture ID listing below this table for specific examples. | `stable-diffusion-v1`, `stable-diffusion-xl-v1-base`, `stable-diffusion-xl-v1-refiner`, `stable-diffusion-v1-lora`, `stable-diffusion-v1-textual-inversion`, `gpt-neo-x` |
 | `title` | **MUST** | A title unique to the specific model. Generally for end-user training software, the user should provide this. If they do not, one can be provided as just eg the original file name or training run name. Inference UIs are encouraged to display this title to users in any model selector tools. | `Stable Diffusion XL 1.0 Base`, `My Example LoRA` |
 | `description` | **SHOULD** | A user-friendly textual description of the model. This may describe what the model is trained on, what its capabilities are, or specific data like trigger words for a small SD finetunes. This field is permitted to contain very long sections of text, with paragraphs and etc. Inference UIs are encouraged to make this description visible-but-not-in-the-way to end users. Usage of markdown formatting is encouraged, and UIs are encouraged to format the markdown properly (displaying as plaintext is also acceptable where markdown is not possible). | `Stable Diffusion XL is the next generation of Stable Diffusion, a 6.5B parameter model-ensemble that generates etc. etc.` |
