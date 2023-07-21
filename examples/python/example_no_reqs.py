@@ -25,6 +25,7 @@ metadata = {
     "modelspec.usage_hint": "Use keyword 'example'" # In your own language, very short hints about how the user should use the model
 }
 
+# set to "" to disable
 image_path = "../images/example.jpg"
 
 # Inputs
@@ -37,11 +38,12 @@ file_name_out = sys.argv[2]
 
 # Actual processing
 def process():
-    print("Loading image...")
-    img = Image.open(image_path)
-    image_ext = os.path.splitext(image_path)[1]
-        # ===== Update the thumbnail for modelspec from an image =====
-    metadata["modelspec.thumbnail"] = f"data:image/{image_ext};base64,{convert_to_b64(img)}"
+    if image_path != "":
+        print("Loading image...")
+        img = Image.open(image_path)
+        image_ext = os.path.splitext(image_path)[1]
+            # ===== Update the thumbnail for modelspec from an image =====
+        metadata["modelspec.thumbnail"] = f"data:image/{image_ext};base64,{convert_to_b64(img)}"
 
     print("Loading model...")
     header = None

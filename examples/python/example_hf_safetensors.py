@@ -5,7 +5,7 @@
 ##################################################
 
 # imports
-import sys, base64
+import os, sys, base64
 from safetensors import safe_open
 from safetensors.torch import save_file
 from io import BytesIO
@@ -25,6 +25,8 @@ metadata = {
     "modelspec.license": "ExampleLicense-1.0", # eg CreativeML Open RAIL, etc.
     "modelspec.usage_hint": "Use keyword 'example'" # In your own language, very short hints about how the user should use the model
 }
+
+# set to "" to disable
 image_path = "../images/example.jpg"
 
 # Inputs
@@ -41,6 +43,13 @@ if file_name_in == file_name_out:
 
 # Actual processing
 def process():
+    if image_path != "":
+        print("Loading image...")
+        img = Image.open(image_path)
+        image_ext = os.path.splitext(image_path)[1]
+            # ===== Update the thumbnail for modelspec from an image =====
+        metadata["modelspec.thumbnail"] = f"data:image/{image_ext};base64,{convert_to_b64(img)}"
+
     tensors = {}
     orig_metadata = None
     print("Loading...")
