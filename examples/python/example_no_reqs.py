@@ -61,8 +61,17 @@ def process():
         print("File does not have metadata")
         orig_metadata = {}
     else:
-        print("File has metadata!")
         orig_metadata = header["__metadata__"]
+        
+        # ===== Check hash =====
+        if "modelspec.hash_sha256" in orig_metadata:
+            hash = orig_metadata["modelspec.hash_sha256"]
+            actual_hash = metadata["modelspec.hash_sha256"]
+            matches = hash == actual_hash
+            result = "MATCH" if matches else f"FAIL, DID NOT MATCH {hash} != {actual_hash}"
+            print(f"Comparing original hash to computed hash: {result}")
+
+        print("File has metadata! Content:")
         for key,val in list(orig_metadata.items()):
             if key.startswith("modelspec."):
                 print(f'    "{key}": "{val[:200] + "..." if len(val) > 200 else val}"')
