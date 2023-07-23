@@ -100,7 +100,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 The following is a list of common Architecture ID values, both to serve as a reference for implementation, and as an example for other architecture IDs to be chosen by. This is not a complete list, just several examples.
 
 - **Stable Diffusion:** `stable-diffusion-v1`, `stable-diffusion-v2-512`, `stable-diffusion-v2-768-v`, `stable-diffusion-xl-v1-base`, `stable-diffusion-xl-v1-refiner`
-- **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1-textual/inversion` (change `stable-diffusion-v1` to the base model architecture)
+- **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1/textual-inversion` (change `stable-diffusion-v1` to the base model architecture)
 - **Language Models:** `gpt-neo-x`
 
 (Note: relevant project leads for well-known model formats are welcomed to PR additions to this list)
