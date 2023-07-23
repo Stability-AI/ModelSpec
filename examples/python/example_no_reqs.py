@@ -44,7 +44,7 @@ def process():
         img = Image.open(image_path)
         image_ext = os.path.splitext(image_path)[1]
             # ===== Update the thumbnail for modelspec from an image =====
-        metadata["modelspec.thumbnail"] = f"data:image/{image_ext};base64,{convert_to_b64(img)}"
+        metadata["modelspec.thumbnail"] = f"data:image/jpeg;base64,{convert_to_b64(img)}"
 
     print("Loading model...")
     header = None
@@ -97,7 +97,7 @@ def process():
 # Util Functions
 def convert_to_b64(image: Image) -> str:
     buffered = BytesIO()
-    image.save(buffered, format="PNG")
+    image.save(buffered, format="JPEG")
     img_b64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
     return img_b64
 
