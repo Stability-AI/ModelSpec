@@ -80,7 +80,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 
 | Name | Type | Description | Examples |
 | --- | --- | --- | --- |
-| `resolution` | **SHOULD** | The base resolution an image generator is intended to work at, in `(width)x(height)` format. This does not need to account for aspect ratios. Future image generator models of a class that are able to handle any resolution may omit this key. Current generation Stable Diffusion models should always have this key. | `512x512`, `1024x1024` |
+| `resolution` | **MUST** | The base resolution an image generator is intended to work at, in `(width)x(height)` format. This does not need to account for aspect ratios. Future image generator models of a class that are able to handle any resolution may omit this key. Current generation Stable Diffusion models should always have this key. | `512x512`, `1024x1024` |
 | `trigger_phrase` | **CAN** | For image generation adapter models (eg LoRA) especially, if a model is trained to heavily require a phrase, it should be placed here. Inference UIs are welcomed to auto-emit this phrase into the prompt if it is present (encouraged to make this behavior optional to the user where possible). | `mypetcat`, `mymodelnamehere` |
 | `prediction_type` | **CAN** | In Stable Diffusion, `v` or `epsilon`. Other model classes may have their own concepts that apply. | `v`, `epsilon` |
 | `timestep_range` | **CAN** | If a model is tuned on a sub-section of possible timesteps (Timestep-Expert Models), identify it here, in the format `<min>,<max>`. | `500,999`, `0,499` |
