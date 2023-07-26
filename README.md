@@ -80,7 +80,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 
 | Name | Type | Description | Examples |
 | --- | --- | --- | --- |
-| `resolution` | **MUST** | The base resolution an image generator is intended to work at, in `(width)x(height)` format. This does not need to account for aspect ratios. Future image generator models of a class that are able to handle any resolution may omit this key. Current generation Stable Diffusion models should always have this key. | `512x512`, `1024x1024` |
+| `resolution` | **MUST** | The base resolution an image generator is intended to work at, in `(width)x(height)` format. This does not need to account for aspect ratios. Future image generator models of a class that are able to handle any resolution may omit this key. Current generation Stable Diffusion models should always have this key. Note that adapter and component models can leave this off. | `512x512`, `1024x1024` |
 | `trigger_phrase` | **CAN** | For image generation adapter models (eg LoRA) especially, if a model is trained to heavily require a phrase, it should be placed here. Inference UIs are welcomed to auto-emit this phrase into the prompt if it is present (encouraged to make this behavior optional to the user where possible). | `mypetcat`, `mymodelnamehere` |
 | `prediction_type` | **CAN** | In Stable Diffusion, `v` or `epsilon`. Other model classes may have their own concepts that apply. | `v`, `epsilon` |
 | `timestep_range` | **CAN** | If a model is tuned on a sub-section of possible timesteps (Timestep-Expert Models), identify it here, in the format `<min>,<max>`. | `500,999`, `0,499` |
@@ -100,6 +100,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 The following is a list of common Architecture ID values, both to serve as a reference for implementation, and as an example for other architecture IDs to be chosen by. This is not a complete list, just several examples.
 
 - **Stable Diffusion:** `stable-diffusion-v1`, or change `v1` to any of: `v1`, `v1-inpainting` `v2-512`, `v2-768-v`, `v2-depth`, `v2-inpainting`, `v2-unclip-h`, `v2-unclip-l`, `xl-v1-base`, `xl-v1-refiner`
+- **Stable Diffusion Components:** `stable-diffusion-xl-v1/vae` (change `stable-diffusion-xl-v1` to the base model architecture)
 - **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1/textual-inversion` (change `stable-diffusion-v1` to the base model architecture)
 - **Language Models:** `gpt-neo-x`
 
