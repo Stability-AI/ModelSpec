@@ -6,7 +6,7 @@ The data within should identify clearly (A) the type and function of a model, cl
 
 ## Version
 
-This is specification version 1.0.0. **NOT YET FINAL. PENDING REVIEW.**
+This is specification version 1.0.0.
 
 ## Technical Placement
 
