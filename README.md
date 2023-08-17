@@ -6,7 +6,9 @@ The data within should identify clearly (A) the type and function of a model, cl
 
 ## Version
 
-This is specification version 1.0.0.
+This is specification version 1.0.1.
+
+Versions are (approximately) SemVer: `(backward-breaking).(forward-breaking).(non-breaking-change)`.
 
 ## Technical Placement
 
@@ -85,6 +87,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 | `prediction_type` | **CAN** | In Stable Diffusion, `v` or `epsilon`. Other model classes may have their own concepts that apply. | `v`, `epsilon` |
 | `timestep_range` | **CAN** | If a model is tuned on a sub-section of possible timesteps (Timestep-Expert Models), identify it here, in the format `<min>,<max>`. | `500,999`, `0,499` |
 | `encoder_layer` | **CAN** | (Specialty) for "clip skip" in Stable Diffusion models, or similar practice in other models like it, this can be applied where relevant to identify that a non-standard layer of an encoder model should be used (so for example value `2` in an SD model indicates `clip_skip=2` should be used). | `2` |
+| `preprocessor` | **CAN** | (Specialty) for "ControlNet" or similar model-adapter types that require preprocessing, this is an indicator of the preprocessing type, as a simple text identifier. Should not identify exact tool (eg "MiDaS"), just the broad type (eg "depth"). | `depth`, `canny` |
 
 #### Text-Prediction Models
 
@@ -101,7 +104,7 @@ The following is a list of common Architecture ID values, both to serve as a ref
 
 - **Stable Diffusion:** `stable-diffusion-v1`, or change `v1` to any of: `v1`, `v1-inpainting` `v2-512`, `v2-768-v`, `v2-depth`, `v2-inpainting`, `v2-unclip-h`, `v2-unclip-l`, `xl-v1-base`, `xl-v1-refiner`
 - **Stable Diffusion Components:** `stable-diffusion-xl-v1/vae` (change `stable-diffusion-xl-v1` to the base model architecture)
-- **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1/textual-inversion` (change `stable-diffusion-v1` to the base model architecture)
+- **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1/textual-inversion`, `stable-diffusion-v1/controlnet`, `stable-diffusion-v1/control-lora` (change `stable-diffusion-v1` to the base model architecture)
 - **Language Models:** `gpt-neo-x`
 
 (Note: relevant project leads for well-known model formats are welcomed to PR additions to this list)
