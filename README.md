@@ -88,6 +88,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 | `timestep_range` | **CAN** | If a model is tuned on a sub-section of possible timesteps (Timestep-Expert Models), identify it here, in the format `<min>,<max>`. | `500,999`, `0,499` |
 | `encoder_layer` | **CAN** | (Specialty) for "clip skip" in Stable Diffusion models, or similar practice in other models like it, this can be applied where relevant to identify that a non-standard layer of an encoder model should be used (so for example value `2` in an SD model indicates `clip_skip=2` should be used). | `2` |
 | `preprocessor` | **CAN** | (Specialty) for "ControlNet" or similar model-adapter types that require preprocessing, this is an indicator of the preprocessing type, as a simple text identifier. Should not identify exact tool (eg "MiDaS"), just the broad type (eg "depth"). | `depth`, `canny` |
+| `is_negative_embedding` | **CAN** | (Specialty) for "Textual-Inversion" or similar input-embedding types that modify prompts, this can be `true` to indicate that the embedding is meant for Negative Prompts, or `false` to indicate it's meant for (Positive) Prompts. A UI implementation may use this key to apply embeddings correctly with less user-intervention. | `true`, `false` |
 
 #### Text-Prediction Models
 
