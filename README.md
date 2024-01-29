@@ -1,6 +1,6 @@
-# Stability.AI Model Metadata Standard Specification
+# Stability AI Model Metadata Standard Specification
 
-The Stability.AI Model Metadata Standard, or "SAI Model Spec", is a standard specification for the format and data of metadata keys in the header of `.safetensors` AI model files.
+The Stability AI Model Metadata Standard, or "SAI Model Spec", is a standard specification for the format and data of metadata keys in the header of `.safetensors` AI model files.
 It seeks to make the content of an AI model file quickly and easily identifiable, such that downstream users (inference engines and UIs) can understand the content of a file without the need for any tricky processing or analysis.
 The data within should identify clearly (A) the type and function of a model, clearly enough that an inference engine can determine how to load it correctly, and (B) user-relevant information that a UI with model-selection capability should display to the end-user.
 
@@ -66,7 +66,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 | `implementation` | **MUST** | A reliably static string that identifies the standard implementation codebase. The model's tensor keys generally will match variable names within the official codebase. This can be a named like `sgm` or a GitHub URL like `https://github.com/Stability-AI/generative-models` or any other string, as long as you do not change it between different models of the same format. | `sgm`, `diffusers` |
 | `title` | **MUST** | A title unique to the specific model. Generally for end-user training software, the user should provide this. If they do not, one can be provided as just eg the original file name or training run name. Inference UIs are encouraged to display this title to users in any model selector tools. | `Stable Diffusion XL 1.0 Base`, `My Example LoRA` |
 | `description` | **SHOULD** | A user-friendly textual description of the model. This may describe what the model is trained on, what its capabilities are, or specific data like trigger words for a small SD finetunes. This field is permitted to contain very long sections of text, with paragraphs and etc. Inference UIs are encouraged to make this description visible-but-not-in-the-way to end users. Usage of markdown formatting is encouraged, and UIs are encouraged to format the markdown properly (displaying as plaintext is also acceptable where markdown is not possible). | `Stable Diffusion XL is the next generation of Stable Diffusion, a 6.5B parameter model-ensemble that generates etc. etc.` |
-| `author` | **SHOULD** | The name or identity of the company or individual that created a model. Can even be a username or personal profile link. | `Stability.AI`, `MyCorp`, `John Doe`, `github.com/example` |
+| `author` | **SHOULD** | The name or identity of the company or individual that created a model. Can even be a username or personal profile link. | `Stability AI`, `MyCorp`, `John Doe`, `github.com/example` |
 | `date` | **SHOULD** | The precise date that a model was created or published, in any ISO-8601-compliant format. | `2023-07-16`, `2023‐07‐16T18:13:38Z` |
 | `hash_sha256` | **SHOULD** | A hash of all tensor content (ie excluding the header section), with `0x` prefix, all lowercase, and no byte-separator symbols. Other keys with the `hash_` prefix followed by a different hash algorithm (eg `hash_md5`) are expected to obey the same format rules and implement the hash algorithm named within. Future versions of the spec may change which algorithm is encouraged as `SHOULD`. Inferencing engines are encouraged to validate that the hash matches after loading a file and warn the user if it does not match (ie possible file corruption). Model trainers/modifiers are strongly encouraged to calculate the hash and emit it correctly automatically whenever saving a model. This is not a `MUST` because hash algorithms may change with time, and the format should not be locked in to just one. | `0x123abc...` |
 | `implementation` `_version` | **CAN** | A minimum required version of the specified `implementation` codebase. This can be an actual version ID (eg `2.0.0`) or a commit hash. | `2.0.0`, `abc123` |
@@ -112,4 +112,4 @@ The following is a list of common Architecture ID values, both to serve as a ref
 
 ## Notice
 
-This model metadata standard is published by Stability.AI freely to the public in the interest of creating a shared standard format for the benefit of the community as a whole.
+This model metadata standard is published by Stability AI freely to the public in the interest of creating a shared standard format for the benefit of the community as a whole.
