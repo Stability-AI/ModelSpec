@@ -49,7 +49,7 @@ def process():
     print("Loading model...")
     header = None
     content = None
-        # ===== Safetensors files are very easy to load by hand =====
+    # ===== Safetensors files are very easy to load by hand =====
     with open(file_name_in, mode='rb') as file_data:
         file_hash = hashlib.sha256()
         head_len = struct.unpack('Q', file_data.read(8)) # int64 header length prefix
@@ -95,7 +95,7 @@ def process():
         file_data.write(content)
 
 # Util Functions
-def convert_to_b64(image: Image) -> str:
+def convert_to_b64(image: Image.Image) -> str:
     buffered = BytesIO()
     image.save(buffered, format="JPEG")
     img_b64 = base64.b64encode(buffered.getvalue()).decode("utf-8")

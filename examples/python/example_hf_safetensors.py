@@ -77,7 +77,7 @@ def process():
     save_file(tensors, file_name_out, metadata=orig_metadata)
 
 # Util Functions
-def convert_to_b64(image: Image) -> str:
+def convert_to_b64(image: Image.Image) -> str:
     buffered = BytesIO()
     image.save(buffered, format="JPEG")
     img_b64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
