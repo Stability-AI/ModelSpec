@@ -109,6 +109,7 @@ The following is a list of common Architecture ID values, both to serve as a ref
 - **Stable Video Diffusion:** `stable-video-diffusion-img2vid-v1`, or change `v1` to any of: `v1`, `v0_9`
 - **Stable Diffusion Components:** `stable-diffusion-xl-v1/vae` (change `stable-diffusion-xl-v1` to the base model architecture)
 - **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1/textual-inversion`, `stable-diffusion-v1/controlnet`, `stable-diffusion-v1/control-lora` (change `stable-diffusion-v1` to the base model architecture)
+- **Stable Cascade:** `stable-cascade-v1-stage-a` (or `b`, `c`, initial release also had variants of the form `b-bf16`)
 - **Language Models:** `gpt-neo-x`
 
 (Note: relevant project leads for well-known model formats are welcomed to PR additions to this list)
