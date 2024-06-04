@@ -105,7 +105,7 @@ This specification defines 3 categories of key: **MUST**, **SHOULD**, **CAN**
 
 The following is a list of common Architecture ID values, both to serve as a reference for implementation, and as an example for other architecture IDs to be chosen by. This is not a complete list, just several examples.
 
-- **Stable Diffusion:** `stable-diffusion-v1`, or change `v1` to any of: `v1`, `v1-inpainting` `v2-512`, `v2-768-v`, `v2-depth`, `v2-inpainting`, `v2-unclip-h`, `v2-unclip-l`, `xl-v1-base`, `xl-v1-refiner`, `xl-v1-edit`, `xl-turbo-v1`
+- **Stable Diffusion:** `stable-diffusion-v1`, or change `v1` to any of: `v1`, `v1-inpainting` `v2-512`, `v2-768-v`, `v2-depth`, `v2-inpainting`, `v2-unclip-h`, `v2-unclip-l`, `xl-v1-base`, `xl-v1-refiner`, `xl-v1-edit`, `xl-turbo-v1`, `v3-medium`
 - **Stable Video Diffusion:** `stable-video-diffusion-img2vid-v1`, or change `v1` to any of: `v1`, `v0_9`
 - **Stable Diffusion Components:** `stable-diffusion-xl-v1/vae` (change `stable-diffusion-xl-v1` to the base model architecture)
 - **Stable Diffusion Adapters:** `stable-diffusion-v1/lora`, `stable-diffusion-v1/textual-inversion`, `stable-diffusion-v1/controlnet`, `stable-diffusion-v1/control-lora` (change `stable-diffusion-v1` to the base model architecture)
